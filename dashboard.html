@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NovaForge Dashboard</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <style>
+    body { background-color:#043927; color:white; font-family:Arial; text-align:center; margin-top:50px; }
+    nav a { margin:0 10px; color:#0d9f52; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
+    h1 { color:#0d9f52; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to NovaForge</h1>
+  <nav>
+    <a href="auth.html">Account</a> |
+    <a href="dashboard.html">Dashboard</a> |
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <p id="userEmail"></p>
+  <button id="logoutBtn">Logout</button>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCjpz1ATVEcXo-8g25LbU8WSUjtHdEZutI",
+      authDomain: "nova-forge-bi.firebaseapp.com",
+      projectId: "nova-forge-bi",
+      storageBucket: "nova-forge-bi.firebasestorage.app",
+      messagingSenderId: "403298025362",
+      appId: "1:403298025362:web:9b0f0770ebb22d3a160b4b",
+      measurementId: "G-2GDTNBP0W1"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        document.getElementById("userEmail").innerText = "Logged in as: " + user.email;
+      } else {
+        window.location.href = "auth.html";
+      }
+    });
+
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      auth.signOut().then(() => window.location.href = "auth.html");
+    });
+  </script>
+</body>
+</html>
