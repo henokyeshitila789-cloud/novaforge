@@ -2,26 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NovaForge Dashboard</title>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-  <style>
-    body { background-color:#043927; color:white; font-family:Arial; text-align:center; margin-top:50px; }
-    nav a { margin:0 10px; color:#0d9f52; text-decoration:none; font-weight:bold; }
-    nav a:hover { text-decoration:underline; }
-    h1 { color:#0d9f52; }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - NovaForge</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Welcome to NovaForge</h1>
-  <nav>
-    <a href="auth.html">Account</a> |
-    <a href="dashboard.html">Dashboard</a> |
-    <a href="contact.html">Contact</a>
-  </nav>
+  <header>
+    <h1>Dashboard</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <button onclick="logoutUser()">Logout</button>
+    </nav>
+  </header>
 
-  <p id="userEmail"></p>
-  <button id="logoutBtn">Logout</button>
+  <main>
+    <h2 id="welcome"></h2>
+    <p>This is your dashboard. Future features will appear here.</p>
+  </main>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
   <script>
     const firebaseConfig = {
@@ -39,15 +41,20 @@
 
     auth.onAuthStateChanged(user => {
       if (user) {
-        document.getElementById("userEmail").innerText = "Logged in as: " + user.email;
+        document.getElementById("welcome").innerText = "Welcome, " + user.email;
       } else {
-        window.location.href = "auth.html";
+        window.location.href = "login.html";
       }
     });
 
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      auth.signOut().then(() => window.location.href = "auth.html");
-    });
+    function logoutUser() {
+      auth.signOut().then(() => {
+        alert("Logged out successfully!");
+        window.location.href = "login.html";
+      }).catch(error => {
+        alert("Error: " + error.message);
+      });
+    }
   </script>
 </body>
 </html>
