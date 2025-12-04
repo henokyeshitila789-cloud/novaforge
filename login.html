@@ -32,21 +32,19 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
 
   <script>
-    // TODO: Replace with your Firebase project config
     const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_SENDER_ID",
-      appId: "YOUR_APP_ID"
+      apiKey: "AIzaSyCjpz1ATVEcXo-8g25LbU8WSUjtHdEZutI",
+      authDomain: "nova-forge-bi.firebaseapp.com",
+      projectId: "nova-forge-bi",
+      storageBucket: "nova-forge-bi.firebasestorage.app",
+      messagingSenderId: "403298025362",
+      appId: "1:403298025362:web:9b0f0770ebb22d3a160b4b",
+      measurementId: "G-2GDTNBP0W1"
     };
 
-    // Initialize Firebase
     const app = firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth();
 
-    // Login function
     function loginUser(event) {
       event.preventDefault();
       const email = document.getElementById("email").value;
@@ -55,7 +53,6 @@
       auth.signInWithEmailAndPassword(email, password)
         .then(userCredential => {
           alert("Login successful!");
-          // Redirect to dashboard
           window.location.href = "dashboard.html";
         })
         .catch(error => {
