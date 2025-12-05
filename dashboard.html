@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dashboard - NovaForge</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
-    <h1>Dashboard</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-      <button onclick="logoutUser()">Logout</button>
-    </nav>
+    <div class="container">
+      <h1 class="logo">NovaForge</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+        <button onclick="logoutUser()">Logout</button>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <h2 id="welcome"></h2>
-    <p>This is your dashboard. Future features will appear here.</p>
+    <section class="welcome-card">
+      <h2 id="welcome">Welcome, loading...</h2>
+      <p>This is your personalized dashboard. More features coming soon!</p>
+    </section>
+
+    <section class="features">
+      <div class="feature-box">
+        <h3>🔥 Project Tracker</h3>
+        <p>Track your deployed projects and monitor progress.</p>
+      </div>
+      <div class="feature-box">
+        <h3>📊 Analytics</h3>
+        <p>View usage stats and performance metrics (coming soon).</p>
+      </div>
+      <div class="feature-box">
+        <h3>🛠️ Tools</h3>
+        <p>Access your favorite dev tools and integrations.</p>
+      </div>
+    </section>
   </main>
 
   <!-- Firebase SDKs -->
