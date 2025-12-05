@@ -1,29 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaForge - Home</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NovaForge — Home</title>
+  <link rel="stylesheet" href="style.css?v=2"/>
 </head>
 <body>
   <header>
-    <h1>Welcome to NovaForge</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="signup.html">Signup</a>
-      <a href="login.html">Login</a>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-wrap">
+      <div class="logo">NovaForge</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="signup.html">Signup</a>
+        <a href="login.html">Login</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <p>This is the landing page for NovaForge. Use the navigation above to explore.</p>
-  </main>
+  <div class="container">
+    <section class="hero">
+      <div>
+        <h1>Build, launch, and track your projects.</h1>
+        <p class="muted">A clean, modern hub for your work—simple auth, neat UI, and room to grow.</p>
+      </div>
+      <div class="card">
+        <h3>Get started</h3>
+        <p class="muted">Create an account to access your dashboard and tools.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="signup.html">Signup</a>
+          <a class="btn btn-secondary" href="login.html">Login</a>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 NovaForge. All rights reserved.</p>
-  </footer>
+    <section style="margin-top:1.5rem;">
+      <h2 class="section-title">Features</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Authentication</h3>
+          <p class="muted">Secure email/password login powered by Firebase.</p>
+        </div>
+        <div class="card">
+          <h3>Dashboard</h3>
+          <p class="muted">Personalized space with user info and quick actions.</p>
+        </div>
+        <div class="card">
+          <h3>Scalable UI</h3>
+          <p class="muted">Responsive design ready for new modules and data.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>© NovaForge</footer>
 </body>
 </html>
